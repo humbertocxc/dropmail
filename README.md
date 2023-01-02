@@ -1,92 +1,97 @@
-# DropMail
+# DropMail.me Challenge
+
+## Introdução
+
+Este é um desafio para testar seus conhecimentos de Front-end;
+
+O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando o Framework sugerido na vaga aplicada.
+
+### Antes de começar
+ 
+- Prepare o projeto para ser disponibilizado no Github, copiando o conteúdo deste repositório para o seu (ou utilize o fork do projeto e aponte para o Github). Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge);
+- O projeto deve utilizar a Linguagem específica na sua Vaga (caso esteja se candidatando). Por exempo: Python, R, Scala e entre outras;
+- Considere como deadline 5 dias a partir do início do desafio. Caso tenha sido convidado a realizar o teste e não seja possível concluir dentro deste período, avise a pessoa que o convidou para receber instruções sobre o que fazer.
+- Documentar todo o processo de investigação para o desenvolvimento da atividade (README.md no seu repositório); os resultados destas tarefas são tão importantes do que o seu processo de pensamento e decisões à medida que as completa, por isso tente documentar e apresentar os seus hipóteses e decisões na medida do possível.
+
+## Case
+
+Sites e serviços online geralmente exigem um endereço de e-mail válido para registrar, acessar ou receber conteúdo protegido, etc. No entanto, o problema é que alguns desses sites podem usar nossos endereços de e-mail para enviar mensagens indesejadas. As pessoas não querem se preocupar mais com spam, propagandas no email, hackers e ataques de robôs.
+
+Uma boa maneira de lidar com isso é usar um endereço de e-mail temporário se você não tiver certeza de que este site é absolutamente confiável e confiável. Dessa forma, você pode manter seus e-mails longe de spam e proteger sua privacidade. Sua tarefa para esse case será desenvolver uma aplicação que consuma uma API de email temporário para que os usuários possam utilizar serviços sem expor seu email real, seguindo os requisitos propostos neste desafio.
+
+## Recursos
+
+1. Estudar a documentação da REST API: https://dropmail.me/api/
+2. Utilizar Frameworks CSS, recomendamos alguns como:
+
+    - Tailwind CSS: https://tailwindcss.com/
+    - Material UI: https://material-ui.com/
+    - Angular Material: https://material.angular.io/
+    - Bootstrap: https://getbootstrap.com/
+    - Bulma: https://bulma.io/
+    - Outro de sua preferência
+
+## Tela para Desktop
+
+![Desktop](assets/desktop.png)
+
+## Tela para Mobile
+
+A versão desktop deve ser criada e adaptada para exibir todos os elementos presentes na versão desktop.
+
+## API
+
+Para obter os dados, utilizaremos a API do DropMail. Observe que a comunicação é realizada utilizando [GraphQL](https://graphql.org/), enviando todas as requisições para o endereço https://dropmail.me/api/graphql/MY_TOKEN (HTTP) ou wss://dropmail.me/api/graphql/${AUTH_TOKEN}/websocket (WebSocket). Para se comunicar nestes formatos, é possível usar um cliente (por exemplo, o Apollo) ou utilizar um cliente do tipo Axios.
+
+Conforme explicado na documentação, você pode usar qualquer string única de 8 caracteres ou mais como ${MY_TOKEN}.
 
 
+## Obrigatórios
 
-## Getting started
+**Obrigatório 1 -** Você deverá atender aos seguintes casos de uso:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- Como usuário, posso gerar um endereço de email temporário;
+- Como usuário, posso copiar o endereço de email gerado;
+- Como usuário, posso visualizar a caixa de entrada deste email;
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+**Obrigatório 2 -** Para capturar a chegada de novos emails, você deve verificar a caixa de mensagens a cada 15 segundos.
 
-## Add your files
+**Obrigatório 3 -** Adicione um novo botão chamado "Receber notificações". Este botão irá ativar a notificações na área de trabalho quando chegar um novo email, caso a tab não esteja em foco. Caso o usuário não aceite, o botão deve permitir que, se clicado, abra novamente a mensagem para liberar este recurso do navegador.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+**Obrigatório 4 -** Seguir a base do [mockup](assets/desktop.png) (estilização ao seu critério)
 
-```
-cd existing_repo
-git remote add origin https://lab.coodesh.com/challenges/frontend/dropmail.git
-git branch -M main
-git push -uf origin main
-```
+**Obrigatório 5 -** Salve os dados de acesso ao email no localstorage ou sessionstorage, para que a conta não seja perdida ao atualizar a página. Caso o email tenha expirado, é necessário remover esse registro do storage.
 
-## Integrate with your tools
+## Extras
 
-- [ ] [Set up project integrations](https://lab.coodesh.com/challenges/frontend/dropmail/-/settings/integrations)
+Além do desafio proposto temos alguns diferenciais:
 
-## Collaborate with your team
+**Diferencial 1 -** Escrever Unit Tests ou E2E Test. Escolher a melhor abordagem e biblioteca;
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+**Diferencial 2 -** Configurar Docker no Projeto para facilitar o Deploy da equipe de DevOps;
 
-## Test and Deploy
+**Diferencial 3 -** Publique o projeto em alguma plataforma, como por exemplo a [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/) ou outra de sua preferência.
 
-Use the built-in continuous integration in GitLab.
+## Readme do Repositório
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+- Deve conter o título do projeto
+- Uma descrição de uma frase
+- Como instalar e usar o projeto (instruções)
+- Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
 
-***
+## Finalização
 
-# Editing this README
+Avisar sobre a finalização e enviar para correção em: [https://coodesh.com/review-challenge](https://coodesh.com/review-challenge)
+Após essa etapa será marcado a apresentação/correção do projeto.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## Instruções para a Apresentação:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+1. Será necessário compartilhar a tela durante a vídeo chamada;
+2. Deixe todos os projetos de solução previamente abertos em seu computador antes de iniciar a chamada;
+3. Deixe os ambientes configurados e prontos para rodar;
+4. Prepara-se pois você será questionado sobre cada etapa e decisão do Challenge;
+5. Prepare uma lista de perguntas, dúvidas, sugestões de melhorias e feedbacks (caso tenha).
 
-## Name
-Choose a self-explaining name for your project.
+## Suporte
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Use a [nossa comunidade](https://discord.com/invite/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma.
