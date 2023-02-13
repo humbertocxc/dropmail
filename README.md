@@ -45,6 +45,8 @@ Para obter os dados, utilizaremos a API do DropMail. Observe que a comunicação
 
 Conforme explicado na documentação, você pode usar qualquer string única de 8 caracteres ou mais como ${MY_TOKEN}.
 
+> Nota: caso tenha problemas de CORS, sugerimos que utilize uma ferramenta como, por exemplo, [https://cors-anywhere.herokuapp.com](https://cors-anywhere.herokuapp.com)
+
 
 ## Obrigatórios
 
