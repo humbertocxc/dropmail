@@ -77,23 +77,34 @@ Além do desafio proposto temos alguns diferenciais:
 ## Readme do Repositório
 
 - Deve conter o título do projeto
-- Uma descrição de uma frase
+- Uma descrição sobre o projeto em frase
+- Deve conter uma lista com linguagem, framework e/ou tecnologias usadas
 - Como instalar e usar o projeto (instruções)
 - Não esqueça o [.gitignore](https://www.toptal.com/developers/gitignore)
+- Se está usando github pessoal, referencie que é um challenge by coodesh:  
 
-## Finalização
+>  This is a challenge by [Coodesh](https://coodesh.com/)
 
-Avisar sobre a finalização e enviar para correção em: [https://coodesh.com/review-challenge](https://coodesh.com/review-challenge)
-Após essa etapa será marcado a apresentação/correção do projeto.
 
-## Instruções para a Apresentação:
+## Finalização e Instruções para a Apresentação
 
-1. Será necessário compartilhar a tela durante a vídeo chamada;
-2. Deixe todos os projetos de solução previamente abertos em seu computador antes de iniciar a chamada;
-3. Deixe os ambientes configurados e prontos para rodar;
-4. Prepara-se pois você será questionado sobre cada etapa e decisão do Challenge;
-5. Prepare uma lista de perguntas, dúvidas, sugestões de melhorias e feedbacks (caso tenha).
+Avisar sobre a finalização e enviar para correção.
+
+1. Confira se você respondeu o Scorecard anexado na Vaga que se candidatou;
+2. Confira se você respondeu o Mapeamento anexado na Vaga que se candidatou;
+3. Acesse [https://coodesh.com/challenges/review](https://coodesh.com/challenges/review);
+4. Adicione o repositório com a sua solução;
+5. Grave um vídeo, utilizando o botão na tela de solicitar revisão da Coodesh, com no máximo 5 minutos, com a apresentação do seu projeto. Utilize o tempo para:
+- Explicar o objetivo do desafio
+- Quais tecnologias foram utilizadas
+- Mostrar a aplicação em funcionamento
+- Foque em pontos obrigatórios e diferenciais quando for apresentar.
+6. Adicione o link da apresentação do seu projeto no README.md.
+7. Verifique se o Readme está bom e faça o commit final em seu repositório;
+8. Confira a vaga desejada;
+9. Envie e aguarde as instruções para seguir no processo. Sucesso e boa sorte. =)
 
 ## Suporte
 
-Use a [nossa comunidade](https://discord.com/invite/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma.
+Use a [nossa comunidade](https://discord.gg/rdXbEvjsWu) para tirar dúvidas sobre o processo ou envie uma mensagem diretamente a um especialista no chat da plataforma. 
+
