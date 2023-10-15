@@ -5,8 +5,17 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        1: '0.8px',
+        '1.5': '1.25px'
+      },
+      colors: {
+        'dark-bg': 'rgb(15 15 20)',
+      }
+    },
   },
   plugins: [],
+  darkMode: 'class'
 }
 
