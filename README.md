@@ -2,7 +2,8 @@
 
 ## Roadmap
 
-- [ ] Project setup;
+- [x] Project setup;
+- [ ] E2E tests with Jest and React Testing Library;
 - [ ] Build main layout using TailwindCSS;
 - [ ] Make the layout responsive;
 - [ ] Data fetching with Apollo Client and use Codegen to Typescript;
@@ -12,6 +13,5 @@
 - [ ] Create a counter to refetch user's email inbox every 15s;
 - [ ] User should choose to see desktop notifications;
 - [ ] Save use data on localstorage;
-- [ ] E2E tests with Jest and React Testing Library;
 - [ ] Dockerize application;
 - [ ] Publish application
