@@ -1,0 +1,22 @@
+mutation introduceSession {
+  introduceSession {
+    id,
+    expiresAt,
+    addresses {
+      address
+    }
+  }
+}
+
+query getEmail {
+  session(id: "U2Vzc2lvbjr4dn9iFqdKLZnkqqJ8trXk") {
+    mails{
+      rawSize,
+      fromAddr,
+      toAddr,
+      downloadUrl,
+      text,
+      headerSubject
+    }
+  }
+}

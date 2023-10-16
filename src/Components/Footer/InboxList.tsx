@@ -1,4 +1,9 @@
+import { useGetEmailQuery } from '../../__generated__/graphql'
+
 export default function InboxList() {
+  const { data } = useGetEmailQuery()
+
+  console.log(data)
   return (
     <div className="h-full border-r-1 bg-white dark:border-zinc-700 dark:bg-zinc-900 col-span-1">
       <div className="p-3 border-b-1 border-zinc-300 dark:border-zinc-700">
