@@ -1,18 +1,19 @@
-import { BiSolidCopy } from 'react-icons/bi'
-import { IoRefreshOutline } from 'react-icons/io5'
+import { BiSolidCheckCircle, BiSolidCopy } from 'react-icons/bi'
 import useGetSession from '../../Hooks/useGetSession'
-// import { useState } from 'react'
+import { showNotification } from '../../utils/showNotification'
+import { useState } from 'react'
+import delay from '../../utils/delay'
 
 export default function Email() {
-  // const [showCopied, setShowCopied] = useState(false) 
   const emailAddress = useGetSession()
+  const [isCopying, setIsCopying] = useState(false)
 
-  const handleRefetchQuery = () => {
-    
-  }
-
-  const handleCopyEmail = () => {
+  const handleCopyEmail = async () => {
+    setIsCopying(true)
     navigator.clipboard.writeText(emailAddress)
+    showNotification(emailAddress, 'Email copiado com sucesso')
+    await delay()
+    setIsCopying(false)
   }
 
   return (
@@ -31,24 +32,18 @@ export default function Email() {
         >
           {emailAddress}
         </span>
-        {emailAddress === 'Error fetching email'
-          ? (
-            <button
-              className="flex items-center px-3 hover:scale-105 transition-all hover:bg-zinc-200
-            hover:dark:bg-zinc-800 text-red-600 hover:text-red-700"
-              onClick={handleRefetchQuery}
-            >
-              <IoRefreshOutline />
-            </button>
-          ) : (
-            <button
-              className="flex items-center px-3 hover:scale-105 transition-all hover:bg-zinc-200
+        <button
+          className="flex items-center px-3 hover:scale-105 transition-all hover:bg-zinc-200
             hover:dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300"
-              onClick={handleCopyEmail}
-            >
-              <BiSolidCopy className="mr-1" />
-            </button>
+          onClick={handleCopyEmail}
+          disabled={isCopying}
+        >
+          {isCopying ? (
+            <BiSolidCheckCircle />
+          ) : (
+            <BiSolidCopy className="mr-1" />
           )}
+        </button>
       </div>
     </div>
   )

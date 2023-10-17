@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { IoRefreshOutline } from 'react-icons/io5'
+import useGetEmails from '../../Hooks/useGetEmails'
+import delay from '../../utils/delay'
 
 export default function Refresh() {
+  const { refetch } = useGetEmails()
   const [isRefetching, setIsRefetching] = useState(false)
 
-  const handleRefetch = () => {
+  const handleRefetch = async () => {
     setIsRefetching(true)
-    new Promise(resolve => setTimeout(resolve, 1000))
+    refetch()
+    await delay()
     setIsRefetching(false)
   }
 
@@ -23,7 +27,7 @@ export default function Refresh() {
         onClick={handleRefetch}
         disabled={isRefetching}
       >
-        <IoRefreshOutline className="mr-2"/>
+        <IoRefreshOutline className="mr-1"/>
         <span>{isRefetching ? 'Refetching...' : 'Refetch'}</span>
       </button>
     </div>
