@@ -417,15 +417,17 @@ export type IntroduceSessionMutationVariables = Exact<{ [key: string]: never; }>
 
 export type IntroduceSessionMutation = { __typename?: 'MutationRoot', introduceSession?: { __typename?: 'Session', id: string, expiresAt: any, addresses?: Array<{ __typename?: 'Address', address: string } | null> | null } | null };
 
-export type GetEmailQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetEmailsQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
 
 
-export type GetEmailQuery = { __typename?: 'QueryRoot', session?: { __typename?: 'Session', mails?: Array<{ __typename?: 'Mail', rawSize: number, fromAddr: string, toAddr: string, downloadUrl: any, text?: string | null, headerSubject?: string | null } | null> | null } | null };
+export type GetEmailsQuery = { __typename?: 'QueryRoot', session?: { __typename?: 'Session', mails?: Array<{ __typename?: 'Mail', rawSize: number, fromAddr: string, toAddr: string, downloadUrl: any, text?: string | null, headerSubject?: string | null } | null> | null } | null };
 
 
 export const IntroduceSessionDocument = gql`
     mutation introduceSession {
-  introduceSession {
+  introduceSession(input: {withAddress: true, domainId: "RG9tYWluOjE4"}) {
     id
     expiresAt
     addresses {
@@ -459,9 +461,9 @@ export function useIntroduceSessionMutation(baseOptions?: Apollo.MutationHookOpt
 export type IntroduceSessionMutationHookResult = ReturnType<typeof useIntroduceSessionMutation>;
 export type IntroduceSessionMutationResult = Apollo.MutationResult<IntroduceSessionMutation>;
 export type IntroduceSessionMutationOptions = Apollo.BaseMutationOptions<IntroduceSessionMutation, IntroduceSessionMutationVariables>;
-export const GetEmailDocument = gql`
-    query getEmail {
-  session(id: "U2Vzc2lvbjqcMxamadJC_aLiPz_XL0lK") {
+export const GetEmailsDocument = gql`
+    query getEmails($id: ID!) {
+  session(id: $id) {
     mails {
       rawSize
       fromAddr
@@ -475,28 +477,29 @@ export const GetEmailDocument = gql`
     `;
 
 /**
- * __useGetEmailQuery__
+ * __useGetEmailsQuery__
  *
- * To run a query within a React component, call `useGetEmailQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetEmailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetEmailsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetEmailsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetEmailQuery({
+ * const { data, loading, error } = useGetEmailsQuery({
  *   variables: {
+ *      id: // value for 'id'
  *   },
  * });
  */
-export function useGetEmailQuery(baseOptions?: Apollo.QueryHookOptions<GetEmailQuery, GetEmailQueryVariables>) {
+export function useGetEmailsQuery(baseOptions: Apollo.QueryHookOptions<GetEmailsQuery, GetEmailsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetEmailQuery, GetEmailQueryVariables>(GetEmailDocument, options);
+        return Apollo.useQuery<GetEmailsQuery, GetEmailsQueryVariables>(GetEmailsDocument, options);
       }
-export function useGetEmailLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetEmailQuery, GetEmailQueryVariables>) {
+export function useGetEmailsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetEmailsQuery, GetEmailsQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetEmailQuery, GetEmailQueryVariables>(GetEmailDocument, options);
+          return Apollo.useLazyQuery<GetEmailsQuery, GetEmailsQueryVariables>(GetEmailsDocument, options);
         }
-export type GetEmailQueryHookResult = ReturnType<typeof useGetEmailQuery>;
-export type GetEmailLazyQueryHookResult = ReturnType<typeof useGetEmailLazyQuery>;
-export type GetEmailQueryResult = Apollo.QueryResult<GetEmailQuery, GetEmailQueryVariables>;
+export type GetEmailsQueryHookResult = ReturnType<typeof useGetEmailsQuery>;
+export type GetEmailsLazyQueryHookResult = ReturnType<typeof useGetEmailsLazyQuery>;
+export type GetEmailsQueryResult = Apollo.QueryResult<GetEmailsQuery, GetEmailsQueryVariables>;

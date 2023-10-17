@@ -1,5 +1,5 @@
 mutation introduceSession {
-  introduceSession {
+  introduceSession(input: { withAddress: true, domainId: "RG9tYWluOjE4" }) {
     id,
     expiresAt,
     addresses {
@@ -8,8 +8,8 @@ mutation introduceSession {
   }
 }
 
-query getEmail {
-  session(id: "U2Vzc2lvbjr4dn9iFqdKLZnkqqJ8trXk") {
+query getEmails($id: ID!) {
+  session(id: $id) {
     mails{
       rawSize,
       fromAddr,

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useIntroduceSessionMutation } from '../__generated__/graphql'
 
-interface ISession {
+export interface ISession {
   id: string,
   expiresAt: string,
   addresses: {
@@ -18,7 +18,7 @@ function useGetSession() {
   } catch {
     session = null
   }
-  
+
   if (session && session.expiresAt) {
     const now = new Date().getTime()
     const expireDate = new Date(session.expiresAt).getTime()
@@ -35,7 +35,8 @@ function useGetSession() {
   if (loading) return 'Loading email...'
 
   if (data?.introduceSession) {
-    localStorage.setItem('session', JSON.stringify(data?.introduceSession))
+    localStorage.setItem('session', JSON.stringify(data.introduceSession))
+    localStorage.setItem('sessionId', data.introduceSession.id)
     const addresses = data?.introduceSession?.addresses 
     const address = addresses?.length ? addresses[0]?.address : ''
     return address || ''
