@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { IoRefreshOutline } from 'react-icons/io5'
 import useGetEmails from '../../Hooks/useGetEmails'
 import delay from '../../utils/delay'
+import Countdown from './Countdown'
 
 export default function Refresh() {
   const { refetch } = useGetEmails()
@@ -16,11 +17,9 @@ export default function Refresh() {
 
   return (
     <div className="flex items-center gap-5 justify-center">
-      <div className="flex gap-2">
+      <div className="flex items-center gap-2">
         <span>Autorefresh in </span>
-        <span className="flex items-center justify-center p-2 rounded-full w-6 h-6 border-1.5 border-blue-500">
-          5
-        </span>
+        <Countdown refetch={handleRefetch} />
       </div>
       <button
         className="flex flex-row items-center justify-center hover:scale-105 transition-all"

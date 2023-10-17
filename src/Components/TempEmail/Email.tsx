@@ -1,6 +1,5 @@
 import { BiSolidCheckCircle, BiSolidCopy } from 'react-icons/bi'
 import useGetSession from '../../Hooks/useGetSession'
-import { showNotification } from '../../utils/showNotification'
 import { useState } from 'react'
 import delay from '../../utils/delay'
 
@@ -11,7 +10,6 @@ export default function Email() {
   const handleCopyEmail = async () => {
     setIsCopying(true)
     navigator.clipboard.writeText(emailAddress)
-    showNotification(emailAddress, 'Email copiado com sucesso')
     await delay()
     setIsCopying(false)
   }
@@ -21,7 +19,6 @@ export default function Email() {
       <span className="text-xs text-zinc-700 dark:text-zinc-500">
         Your temporary email address
       </span>
-
       <div
         className="flex flex-row border-1 border-zinc-300 hover:border-zinc-200
       dark:border-zinc-700 hover:dark:border-zinc-800 rounded-md transition-all overflow-hidden"

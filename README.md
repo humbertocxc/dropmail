@@ -10,7 +10,7 @@
 - [x] User should be able to generate a temporary email;
 - [x] User should be able to copy generated email;
 - [x] User should be able to view his email inbox;
-- [ ] Create a counter to refetch user's email inbox every 15s;
+- [x] Create a counter to refetch user's email inbox every 15s;
 - [x] User should choose to see desktop notifications;
 - [x] Save use data on localstorage;
 - [ ] Dockerize application;
