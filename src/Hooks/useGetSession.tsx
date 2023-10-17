@@ -11,6 +11,11 @@ export interface ISession {
 
 function useGetSession() {
   let session: ISession | null
+  const [mutateFunction, { data, loading }] = useIntroduceSessionMutation()
+
+  useEffect(() => {
+    mutateFunction()
+  }, [])
 
   try {
     const sessionData = localStorage.getItem('session') || ''
@@ -25,12 +30,6 @@ function useGetSession() {
 
     if (expireDate > now) return session.addresses[0].address
   }
-
-  const [mutateFunction, { data, loading }] = useIntroduceSessionMutation()
-
-  useEffect(() => {
-    mutateFunction()
-  }, [])
 
   if (loading) return 'Loading email...'
 
