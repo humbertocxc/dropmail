@@ -1,5 +1,15 @@
 # DropMail
 
+[Access application](https://dropmail-tau.vercel.app/)
+
+## Run local
+
+- Clone this repo and go to the folder
+- Run npm install
+- Run npm dev run development mode
+- Run npm build to build the server
+- Run npm view to run the built server
+
 ## Roadmap
 
 - [x] Project setup;
@@ -14,5 +24,7 @@
 - [x] User should choose to see desktop notifications;
 - [x] Save use data on localstorage;
 - [ ] Dockerize application;
-- [ ] Publish application;
+- [x] Publish application;
 - [ ] E2E tests with Jest and React Testing Library;
+
+# This app runs by consuming the Dropmail graphql api
