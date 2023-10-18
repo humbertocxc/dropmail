@@ -27,4 +27,5 @@
 - [x] Publish application;
 - [ ] E2E tests with Jest and React Testing Library;
 
-# This app runs by consuming the Dropmail graphql api
+### This app runs by consuming the Dropmail graphql api
+- If you have 403 error, click [https://cors-anywhere.herokuapp.com/corsdemo](here) to allow cors-anywhere proxy
